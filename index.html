@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elevate Studio — Modern Websites that Perform</title>
+  <meta name="description" content="Elevate Studio designs and builds fast, beautiful, conversion-focused websites for small businesses. Book a free discovery call." />
+  <meta name="theme-color" content="#111827" />
+  <link rel="canonical" href="https://elevate.studio/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Elevate Studio" />
+  <meta property="og:title" content="Elevate Studio — Modern Websites that Perform" />
+  <meta property="og:description" content="We design and build premium, fast, SEO-ready websites that convert." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1611162617213-7dc611b4c8a6?q=80&w=1600&auto=format&fit=crop" />
+  <meta property="og:image:alt" content="Minimal device mockup showcasing modern web design" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Elevate Studio — Modern Websites that Perform" />
+  <meta name="twitter:description" content="Premium websites. Faster launches. Better conversions." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1611162617213-7dc611b4c8a6?q=80&w=1600&auto=format&fit=crop" />
+
+  <!-- Favicon (inline SVG E monogram) -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="14" fill="%23111827"/>
+      <path d="M18 18h28v8H26v6h18v8H26v6h20v8H18z" fill="white"/>
+    </svg>' />
+  <link rel="apple-touch-icon" href='data:image/svg+xml;utf8,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+      <rect width="180" height="180" rx="36" fill="%23111827"/>
+      <path d="M50 50h80v20H70v15h60v20H70v15h60v20H50z" fill="white"/>
+    </svg>' />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Elevate Studio",
+    "url": "https://elevate.studio/",
+    "logo": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\"><rect width=\"64\" height=\"64\" rx=\"14\" fill=\"%23111827\"/><path d=\"M18 18h28v8H26v6h18v8H26v6h20v8H18z\" fill=\"white\"/></svg>",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Inter","Helvetica Neue","Arial"] },
+          boxShadow: {
+            soft: '0 12px 28px rgba(2,6,23,0.06)',
+            deep: '0 30px 80px rgba(2,6,23,0.10)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html{scroll-behavior:smooth}
+    /* On-scroll reveal */
+    .reveal{opacity:0;transform:translateY(24px);transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s cubic-bezier(.2,.7,.2,1)}
+    .reveal.show{opacity:1;transform:none}
+    /* Parallax helpers */
+    .will-translate{will-change:transform}
+    /* Premium outline button ring */
+    .gradient-ring{position:relative}
+    .gradient-ring::before{
+      content:"";position:absolute;inset:-2px;border-radius:inherit;padding:2px;
+      background:linear-gradient(90deg,#6366f1,#22d3ee,#34d399);
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;
+    }
+  </style>
+</head>
+<body class="bg-white text-neutral-900 antialiased">
+  <noscript>
+    <div style="padding:12px;background:#fee2e2;color:#991b1b;text-align:center">This site uses JavaScript for animations.</div>
+  </noscript>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-white/70 border-b border-neutral-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="flex h-16 items-center justify-between">
+        <a class="flex items-center gap-2" href="#">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-neutral-900">
+            <svg viewBox="0 0 64 64" class="h-4 w-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M14 14h36v10H24v8h26v10H24v8h26v10H14z" fill="currentColor"/></svg>
+          </span>
+          <span class="font-semibold tracking-tight">Elevate Studio</span>
+        </a>
+        <button id="menuBtn" class="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-neutral-200">
+          <span class="sr-only">Menu</span>
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <ul id="navList" class="hidden lg:flex items-center gap-8 text-sm">
+          <li><a class="hover:opacity-70" href="#services">Services</a></li>
+          <li><a class="hover:opacity-70" href="#work">Work</a></li>
+          <li><a class="hover:opacity-70" href="#pricing">Pricing</a></li>
+          <li><a class="hover:opacity-70" href="#faq">FAQ</a></li>
+          <li>
+            <a class="gradient-ring rounded-xl bg-white px-[calc(1rem-2px)] py-[calc(0.5rem-2px)] font-medium hover:bg-neutral-50" href="#contact">
+              <span class="bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 bg-clip-text text-transparent">Get a Quote</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div id="mobileMenu" class="lg:hidden hidden border-t border-neutral-200 py-3">
+        <a class="block py-2" href="#services">Services</a>
+        <a class="block py-2" href="#work">Work</a>
+        <a class="block py-2" href="#pricing">Pricing</a>
+        <a class="block py-2" href="#faq">FAQ</a>
+        <a class="mt-2 inline-flex rounded-xl bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 px-4 py-2 font-medium text-white" href="#contact">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <!-- soft abstract gradients as background -->
+      <svg class="h-full w-full" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="gA" cx="20%" cy="0%" r="80%">
+            <stop offset="0%" stop-color="#eef2ff"/>
+            <stop offset="100%" stop-color="#ffffff"/>
+          </radialGradient>
+          <radialGradient id="gB" cx="80%" cy="0%" r="70%">
+            <stop offset="0%" stop-color="#e0f2fe"/>
+            <stop offset="100%" stop-color="#ffffff"/>
+          </radialGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#gA)"/>
+        <ellipse cx="1100" cy="120" rx="380" ry="220" fill="url(#gB)"/>
+      </svg>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28">
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+        <div>
+          <p class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-medium shadow-soft">
+            <span class="inline-block h-2 w-2 rounded-full bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500"></span>
+            Now booking — October
+          </p>
+          <h1 class="mt-6 text-4xl font-semibold leading-[1.1] sm:text-6xl tracking-tight">
+            Modern, fast websites that
+            <span class="bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 bg-clip-text text-transparent">convert</span>
+          </h1>
+          <p class="mt-5 max-w-2xl text-lg text-neutral-600">
+            We blend strategy, design, and engineering to ship premium sites in weeks — not months. Mobile-first, SEO-ready, and obsessively performance tuned.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="rounded-xl bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 px-5 py-3 font-semibold text-white shadow-soft hover:translate-y-[-1px] active:translate-y-0">Get a Free Quote</a>
+            <a href="#work" class="gradient-ring rounded-xl bg-white px-5 py-3 font-semibold"><span class="bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 bg-clip-text text-transparent">See Our Work</span></a>
+          </div>
+          <div class="mt-10 flex items-center gap-8 text-sm text-neutral-500">
+            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500"></span>2–4 week delivery</div>
+            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500"></span>Ongoing maintenance</div>
+            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500"></span>SEO-ready</div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-br from-indigo-200 via-sky-200 to-emerald-200 blur-2xl" aria-hidden="true"></div>
+          <div class="rounded-[22px] border border-neutral-200 bg-white p-2 shadow-deep will-translate">
+            <div class="rounded-2xl border border-neutral-200 p-4">
+              <img src="https://images.unsplash.com/photo-1611162617213-7dc611b4c8a6?q=80&w=1600&auto=format&fit=crop" alt="Minimal device mockup showcasing modern web design" class="h-72 w-full rounded-xl object-cover md:h-[420px]" loading="eager"/>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="mt-16 border-t border-neutral-200 bg-neutral-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 gap-6 py-10 sm:grid-cols-3 md:grid-cols-6 opacity-70">
+          <div class="h-6 rounded bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200"></div>
+          <div class="h-6 rounded bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200"></div>
+          <div class="h-6 rounded bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200"></div>
+          <div class="h-6 rounded bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200"></div>
+          <div class="h-6 rounded bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200"></div>
+          <div class="h-6 rounded bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-semibold sm:text-4xl tracking-tight">Services tailored to outcomes</h2>
+        <p class="mt-3 text-neutral-600">We don’t just ship pages — we craft funnels, speed, and storytelling that move your metrics.</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="group relative rounded-3xl border border-neutral-200 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-deep">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 text-white">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="3"/><path d="M3 10h18"/></svg>
+          </div>
+          <h3 class="mt-5 text-xl font-semibold">Web Design & Build</h3>
+          <p class="mt-2 text-neutral-600">Pixel-perfect responsive sites with Tailwind + best practices. Built to be fast, accessible, and easy to extend.</p>
+        </div>
+        <div class="group relative rounded-3xl border border-neutral-200 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-deep">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 text-white">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h3l3 8 4-16 3 8h5"/></svg>
+          </div>
+          <h3 class="mt-5 text-xl font-semibold">Performance & SEO</h3>
+          <p class="mt-2 text-neutral-600">Core Web Vitals, semantic HTML, metadata, sitemaps. Speed that helps rankings and conversions.</p>
+        </div>
+        <div class="group relative rounded-3xl border border-neutral-200 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-deep">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 text-white">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3 class="mt-5 text-xl font-semibold">Care & Maintenance</h3>
+          <p class="mt-2 text-neutral-600">Hosting, updates, backups, analytics. We keep your site humming while you run the business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO / WORK -->
+  <section id="work" class="border-t border-neutral-200 bg-neutral-50 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-semibold sm:text-4xl tracking-tight">Recent Work</h2>
+        <p class="mt-3 text-neutral-600">A showcase of sites we’ve designed and built — clean, fast, and conversion-focused.</p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Placeholder project cards (swap images later) -->
+        <div class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-deep">
+          <img src="https://via.placeholder.com/1200x800.png?text=Project+One" alt="Project One placeholder" class="h-56 w-full rounded-t-2xl object-cover"/>
+          <div class="p-4">
+            <h3 class="font-semibold">Project One</h3>
+            <p class="mt-1 text-sm text-neutral-500">Modern responsive business website</p>
+          </div>
+        </div>
+        <div class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-deep">
+          <img src="https://via.placeholder.com/1200x800.png?text=Project+Two" alt="Project Two placeholder" class="h-56 w-full rounded-t-2xl object-cover"/>
+          <div class="p-4">
+            <h3 class="font-semibold">Project Two</h3>
+            <p class="mt-1 text-sm text-neutral-500">E-commerce storefront with custom features</p>
+          </div>
+        </div>
+        <div class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-deep">
+          <img src="https://via.placeholder.com/1200x800.png?text=Project+Three" alt="Project Three placeholder" class="h-56 w-full rounded-t-2xl object-cover"/>
+          <div class="p-4">
+            <h3 class="font-semibold">Project Three</h3>
+            <p class="mt-1 text-sm text-neutral-500">Portfolio site for a creative professional</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-semibold sm:text-4xl tracking-tight">Simple, transparent pricing</h2>
+        <p class="mt-3 text-neutral-600">Pick a package that matches your goals. Custom quotes available.</p>
+      </div>
+      <div class="mt-12 grid gap-6 lg:grid-cols-3">
+        <div class="relative rounded-3xl border border-neutral-200 bg-white p-8 shadow-soft">
+          <h3 class="text-xl font-semibold">Starter</h3>
+          <p class="mt-2 text-sm text-neutral-500">Perfect for a clean, credible presence</p>
+          <div class="mt-6 flex items-end gap-1"><span class="text-4xl font-extrabold">$699</span><span class="mb-2 text-neutral-500 text-sm">one-time</span></div>
+          <ul class="mt-6 space-y-3 text-sm text-neutral-600">
+            <li>Up to 5 pages</li>
+            <li>Responsive design</li>
+            <li>Contact form</li>
+            <li>Basic SEO</li>
+          </ul>
+          <a href="#contact" class="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 px-4 py-3 font-semibold text-white">Get Started</a>
+        </div>
+        <div class="relative rounded-3xl border border-neutral-200 bg-white p-8 shadow-deep">
+          <div class="absolute -top-3 right-4 rounded-full bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 px-2 py-1 text-xs font-bold text-white">Popular</div>
+          <h3 class="text-xl font-semibold">Growth</h3>
+          <p class="mt-2 text-sm text-neutral-600">Scale content and capture more leads</p>
+          <div class="mt-6 flex items-end gap-1"><span class="text-4xl font-extrabold">$1,499</span><span class="mb-2 text-neutral-600 text-sm">one-time</span></div>
+          <ul class="mt-6 space-y-3 text-sm text-neutral-600">
+            <li>Up to 10 pages</li>
+            <li>Portfolio or Blog</li>
+            <li>Advanced SEO setup</li>
+            <li>Analytics & funnels</li>
+          </ul>
+          <a href="#contact" class="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 px-4 py-3 font-semibold text-white">Start the Project</a>
+        </div>
+        <div class="relative rounded-3xl border border-neutral-200 bg-white p-8 shadow-soft">
+          <h3 class="text-xl font-semibold">Premium</h3>
+          <p class="mt-2 text-sm text-neutral-500">E-commerce or custom features</p>
+          <div class="mt-6 flex items-end gap-1"><span class="text-4xl font-extrabold">$3,499+</span><span class="mb-2 text-neutral-500 text-sm">scoped</span></div>
+          <ul class="mt-6 space-y-3 text-sm text-neutral-600">
+            <li>Online store or integrations</li>
+            <li>Performance tuning</li>
+            <li>Priority support</li>
+            <li>Content migration</li>
+          </ul>
+          <a href="#contact" class="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 px-4 py-3 font-semibold text-white">Talk to Us</a>
+        </div>
+      </div>
+      <p class="mt-6 text-center text-sm text-neutral-500">Need hosting & ongoing updates? Maintenance from <span class="font-medium text-neutral-900">$59/mo</span>.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="border-t border-neutral-200 bg-neutral-50 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-3xl font-semibold sm:text-4xl tracking-tight">FAQ</h2>
+        <div class="mt-8 divide-y divide-neutral-200 rounded-2xl border border-neutral-200 bg-white">
+          <details class="group p-6 open:bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between">
+              <span class="font-semibold">How long does a project take?</span>
+              <svg class="h-5 w-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <p class="mt-3 text-neutral-600">Most sites ship in 2–4 weeks depending on scope and feedback speed.</p>
+          </details>
+          <details class="group p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between">
+              <span class="font-semibold">Do you provide content & images?</span>
+              <svg class="h-5 w-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <p class="mt-3 text-neutral-600">We can curate stock and guide copywriting, or collaborate with your content.</p>
+          </details>
+          <details class="group p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between">
+              <span class="font-semibold">Can you host & maintain the site?</span>
+              <svg class="h-5 w-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <p class="mt-3 text-neutral-600">Yes — we offer managed hosting, updates, backups, and analytics from $59/mo.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-2">
+        <div>
+          <h2 class="text-3xl font-semibold sm:text-4xl tracking-tight">Tell us about your project</h2>
+          <p class="mt-3 text-neutral-600">Share a few details and we’ll send a tailored plan within 24 hours.</p>
+          <div class="mt-8 rounded-3xl border border-neutral-200 bg-white p-6 shadow-soft">
+            <!-- Formspree wiring (replace YOUR_FORM_ID) -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="grid gap-4" onsubmit="if(this.action.includes('YOUR_FORM_ID')){alert('Update the Formspree ID first: formspree.io');return false}">
+              <input type="hidden" name="form-name" value="Elevate Contact" />
+              <div>
+                <label class="mb-1 block text-sm text-neutral-600">Full name</label>
+                <input required name="name" class="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 outline-none ring-0 placeholder:text-neutral-500 focus:border-neutral-900" placeholder="Jane Doe"/>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="mb-1 block text-sm text-neutral-600">Email</label>
+                  <input required type="email" name="email" class="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 outline-none focus:border-neutral-900" placeholder="jane@company.com"/>
+                </div>
+                <div>
+                  <label class="mb-1 block text-sm text-neutral-600">Budget</label>
+                  <select name="budget" class="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 outline-none focus:border-neutral-900">
+                    <option value="under-1k">Under $1k</option>
+                    <option value="1-3k">$1k – $3k</option>
+                    <option value="3-8k">$3k – $8k</option>
+                    <option value="8k+">$8k+</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="mb-1 block text-sm text-neutral-600">What do you need?</label>
+                <textarea name="message" rows="5" class="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 outline-none focus:border-neutral-900" placeholder="Website redesign, e-commerce store, SEO boost, etc."></textarea>
+              </div>
+              <button class="mt-2 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 px-5 py-3 font-semibold text-white" type="submit">Request Proposal</button>
+              <p class="text-xs text-neutral-500">By submitting you agree to our friendly privacy policy.</p>
+            </form>
+          </div>
+        </div>
+        <div class="lg:pl-10">
+          <div class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-soft">
+            <h3 class="text-xl font-semibold">What happens next?</h3>
+            <ul class="mt-4 space-y-3 text-neutral-600">
+              <li class="flex items-start gap-3"><span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 text-white font-bold">1</span> We review your goals & brand.</li>
+              <li class="flex items-start gap-3"><span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 text-white font-bold">2</span> You get a tailored scope, timeline, and price.</li>
+              <li class="flex items-start gap-3"><span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 text-white font-bold">3</span> We kickoff and start designing in 48 hours.</li>
+            </ul>
+            <div class="mt-6 rounded-2xl border border-neutral-200 bg-white p-4">
+              <p class="text-sm text-neutral-500">Prefer email? <a class="hover:opacity-70" href="mailto:hello@elevate.studio">hello@elevate.studio</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-neutral-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-neutral-900">
+              <svg viewBox="0 0 64 64" class="h-4 w-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M14 14h36v10H24v8h26v10H24v8h26v10H14z" fill="currentColor"/></svg>
+            </span>
+            <span class="text-lg font-semibold">Elevate Studio</span>
+          </div>
+          <p class="mt-3 text-sm text-neutral-500">Building premium websites for ambitious small businesses.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold">Services</h4>
+          <ul class="mt-3 space-y-2 text-sm text-neutral-500">
+            <li>Web Design</li>
+            <li>SEO</li>
+            <li>Care Plans</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold">Company</h4>
+          <ul class="mt-3 space-y-2 text-sm text-neutral-500">
+            <li><a href="#work" class="hover:opacity-70">Portfolio</a></li>
+            <li><a href="#pricing" class="hover:opacity-70">Pricing</a></li>
+            <li><a href="#faq" class="hover:opacity-70">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold">Get in touch</h4>
+          <ul class="mt-3 space-y-2 text-sm text-neutral-500">
+            <li><a class="hover:opacity-70" href="mailto:hello@elevate.studio">hello@elevate.studio</a></li>
+            <li>Hamilton, Ontario</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-between gap-4 border-t border-neutral-200 py-6 text-xs text-neutral-500 sm:flex-row">
+        <p>© <span id="year"></span> Elevate Studio. All rights reserved.</p>
+        <p>Built with Tailwind CSS</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // On-scroll reveal
+    (function(){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const selectors = [
+        'header nav','h1','section h2','section .max-w-2xl p','section .group',
+        '#pricing .rounded-3xl','footer .grid > div'
+      ];
+      const nodes = Array.from(document.querySelectorAll(selectors.join(',')));
+      nodes.forEach((n,i)=> { n.classList.add('reveal'); n.style.transitionDelay = (i*30)+'ms'; });
+      if(reduce){ nodes.forEach(n=> n.classList.add('show')); return; }
+      if('IntersectionObserver' in window){
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+        },{threshold:0.12, rootMargin:'0px 0px -10% 0px'});
+        nodes.forEach(n=> io.observe(n));
+      } else { nodes.forEach(n=> n.classList.add('show')); }
+    })();
+
+    // Subtle parallax on hero showcase card (selector safely escaped)
+    (function(){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduce) return;
+      const SEL = '.rounded-\\[22px\\]';
+      let target = null;
+      try { target = document.querySelector(SEL); } catch(e){ console.warn('Parallax selector issue', e); }
+      if(!target) target = document.querySelector('[class~="rounded-[22px]"]');
+      if(!target) return;
+      let y=0, ticking=false;
+      const onScroll = ()=>{
+        y = window.scrollY || 0;
+        if(!ticking){
+          requestAnimationFrame(()=>{
+            const t = Math.max(0, 120 - y*0.15);
+            target.style.transform = `translateY(${t}px)`;
+            ticking=false;
+          });
+          ticking=true;
+        }
+      };
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
+  </script>
+</body>
+</html>
+
