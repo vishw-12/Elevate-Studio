@@ -21,16 +21,18 @@
   <meta property="og:title" content="Elevate Studio — Modern Websites that Perform" />
   <meta property="og:description" content="Premium, fast, SEO-ready websites that convert." />
   <!-- FIXED: closing quote + use a robust image URL -->
-  <meta property="og:image" href="assets/sumup-VSyr_MbH7Q4-unsplash/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?w=1600&q=80&auto=format&fit=crop" />
   <meta property="og:image:alt" content="Clean workspace with laptop and phone" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicon & app icons (put files in /assets) -->
-  <link rel="icon" type="image/svg+xml" href="assets/website_favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=2">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#111827">
+
 
   <!-- Tailwind CDN (keep this line; do not replace with link) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -52,16 +54,15 @@
   </script>
 
   <!-- Small site CSS (snappier reveal timing) -->
-  <style>
-    html { scroll-behavior: smooth; }
-    /* Snappier reveal on scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity .25s ease, transform .25s ease; /* faster than .45s */
-    }
-    .reveal.show { opacity: 1; transform: none; }
-  </style>
+ <style>
+  html { scroll-behavior: smooth; }
+  .reveal { 
+    opacity: 0; 
+    transform: translateY(10px);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .reveal.show { opacity: 1; transform: none; }
+</style>
 </head>
 <body class="bg-white text-neutral-900 antialiased">
   <!-- =========================================================
