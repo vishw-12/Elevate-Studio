@@ -611,5 +611,33 @@
       }
     })();
   </script>
+<script>
+  // Prefill "plan" and include page URL in submissions
+  (function() {
+    const planField = document.getElementById('planField');
+    const pageUrl   = document.getElementById('pageUrl');
+
+    // 1) When pricing CTA is clicked, remember the plan
+    document.querySelectorAll('.select-plan').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const plan = btn.getAttribute('data-plan') || '';
+        if (plan) {
+          localStorage.setItem('selectedPlan', plan);
+          if (planField) planField.value = plan;
+        }
+      });
+    });
+
+    // 2) On page load, use ?plan=... or stored selection
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = params.get('plan');
+    const stored  = localStorage.getItem('selectedPlan');
+    const plan    = fromUrl || stored || '';
+    if (planField && plan) planField.value = plan;
+
+    // 3) Include the current page URL for context
+    if (pageUrl) pageUrl.value = window.location.href;
+  })();
+</script>
 </body>
 </html>
