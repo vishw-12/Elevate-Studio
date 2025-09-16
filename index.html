@@ -543,6 +543,21 @@
   <!-- =========================================================
        JS: tiny helpers (snappier reveal)
        ========================================================= -->
+ <script>
+  // --- Pricing scarcity controls ---
+  // EDIT THESE TWO NUMBERS EACH MONTH:
+  const SLOTS_TOTAL = 5;   // how many projects you accept per month
+  const SLOTS_BOOKED = 3;  // how many are already booked
+
+  const left = Math.max(SLOTS_TOTAL - SLOTS_BOOKED, 0);
+  const pct = Math.min((SLOTS_BOOKED / SLOTS_TOTAL) * 100, 100);
+
+  const slotsLeft = document.getElementById('slotsLeft');
+  const slotsBar  = document.getElementById('slotsBar');
+  if (slotsLeft) slotsLeft.textContent = `${left} of ${SLOTS_TOTAL}`;
+  if (slotsBar)  slotsBar.style.width = `${pct}%`;
+</script>
+
   <script>
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
