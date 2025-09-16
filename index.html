@@ -20,9 +20,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Elevate Studio — Modern Websites that Perform" />
   <meta property="og:description" content="Premium, fast, SEO-ready websites that convert." />
-  <meta property="og:image" content="sumup-VSyr_MbH7Q4-unsplash.jpg/>
+  <!-- FIXED: closing quote + use a robust image URL -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?w=1600&q=80&auto=format&fit=crop" />
   <meta property="og:image:alt" content="Clean workspace with laptop and phone" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon & app icons (put files in /assets) -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <!-- Tailwind CDN (keep this line; do not replace with link) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -43,11 +51,15 @@
     }
   </script>
 
-  <!-- Small site CSS (kept minimal so platforms don’t strip it) -->
+  <!-- Small site CSS (snappier reveal timing) -->
   <style>
     html { scroll-behavior: smooth; }
-    /* Reveal on scroll: adds a subtle pop without hurting performance */
-    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
+    /* Snappier reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .25s ease, transform .25s ease; /* faster than .45s */
+    }
     .reveal.show { opacity: 1; transform: none; }
   </style>
 </head>
@@ -102,8 +114,6 @@
 
   <!-- =========================================================
        HERO
-       - Auto-stacks on small screens; side-by-side on large
-       - Safe edits: badge text, headline, paragraph, buttons, hero image URL
        ========================================================= -->
   <section class="relative">
     <div class="mx-auto max-w-content px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16">
@@ -165,22 +175,18 @@
        ========================================================= -->
   <section id="services" class="py-16 sm:py-24">
     <div class="mx-auto max-w-content px-4 sm:px-6 lg:px-8 text-center">
-      <!-- EDIT: Section title & intro -->
       <h2 class="text-3xl sm:text-4xl font-semibold">Services tailored to outcomes</h2>
       <p class="mt-3 text-neutral-600">We don’t just ship pages — we craft funnels, speed, and storytelling that move your metrics.</p>
 
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-left">
-        <!-- EDIT: Card 1 -->
         <div class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-soft hover:shadow-deep">
           <h3 class="text-xl font-semibold">Web Design & Build</h3>
           <p class="mt-2 text-neutral-600">Responsive sites with Tailwind + best practices. Built fast and accessible.</p>
         </div>
-        <!-- EDIT: Card 2 -->
         <div class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-soft hover:shadow-deep">
           <h3 class="text-xl font-semibold">Performance & SEO</h3>
           <p class="mt-2 text-neutral-600">Core Web Vitals, semantic HTML, sitemaps. Speed that boosts rankings.</p>
         </div>
-        <!-- EDIT: Card 3 -->
         <div class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-soft hover:shadow-deep">
           <h3 class="text-xl font-semibold">Care & Maintenance</h3>
           <p class="mt-2 text-neutral-600">Hosting, updates, backups, analytics. We keep your site humming.</p>
@@ -191,18 +197,14 @@
 
   <!-- =========================================================
        WORK / PORTFOLIO
-       - Working image links; object-cover keeps crops neat.
        ========================================================= -->
   <section id="work" class="bg-neutral-50 py-16 sm:py-24">
     <div class="mx-auto max-w-content px-4 sm:px-6 lg:px-8 text-center">
-      <!-- EDIT: Section title & intro -->
       <h2 class="text-3xl sm:text-4xl font-semibold">Recent Work</h2>
       <p class="mt-3 text-neutral-600">A showcase of sites we’ve designed and built — clean, fast, and conversion-focused.</p>
 
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Project 1 -->
         <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-soft hover:shadow-deep text-left">
-          <!-- EDIT: Image URL (working) -->
           <img
             src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?w=1200&q=80&auto=format&fit=crop"
             alt="Salon website project"
@@ -210,13 +212,11 @@
             loading="lazy"
           />
           <div class="p-4">
-            <!-- EDIT: Title & copy -->
             <h3 class="font-semibold">Salon Luxe</h3>
             <p class="mt-1 text-sm text-neutral-500">Booking-ready with pricing tiers and reviews.</p>
           </div>
         </article>
 
-        <!-- Project 2 -->
         <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-soft hover:shadow-deep text-left">
           <img
             src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200&q=80&auto=format&fit=crop"
@@ -230,7 +230,6 @@
           </div>
         </article>
 
-        <!-- Project 3 -->
         <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-soft hover:shadow-deep text-left">
           <img
             src="https://images.unsplash.com/photo-1501183638710-841dd1904471?w=1200&q=80&auto=format&fit=crop"
@@ -252,12 +251,10 @@
        ========================================================= -->
   <section id="pricing" class="py-16 sm:py-24">
     <div class="mx-auto max-w-content px-4 sm:px-6 lg:px-8 text-center">
-      <!-- EDIT: Section title & intro -->
       <h2 class="text-3xl sm:text-4xl font-semibold">Simple, transparent pricing</h2>
       <p class="mt-3 text-neutral-600">Pick a package that matches your goals. Custom quotes available.</p>
 
       <div class="mt-10 grid gap-6 lg:grid-cols-3 text-left">
-        <!-- EDIT: Plan 1 -->
         <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-soft">
           <h3 class="text-xl font-semibold">Starter</h3>
           <p class="mt-1 text-sm text-neutral-500">Perfect for a clean, credible presence</p>
@@ -271,7 +268,6 @@
           <a href="#contact" class="mt-6 inline-flex rounded-xl bg-neutral-900 px-4 py-3 font-semibold text-white">Get Started</a>
         </div>
 
-        <!-- EDIT: Plan 2 -->
         <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-soft">
           <h3 class="text-xl font-semibold">Growth</h3>
           <p class="mt-1 text-sm text-neutral-500">Scale content and capture more leads</p>
@@ -285,7 +281,6 @@
           <a href="#contact" class="mt-6 inline-flex rounded-xl bg-neutral-900 px-4 py-3 font-semibold text-white">Start the Project</a>
         </div>
 
-        <!-- EDIT: Plan 3 -->
         <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-soft">
           <h3 class="text-xl font-semibold">Premium</h3>
           <p class="mt-1 text-sm text-neutral-500">E-commerce or custom features</p>
@@ -310,7 +305,6 @@
       <h2 class="text-3xl sm:text-4xl font-semibold text-center">FAQ</h2>
 
       <div class="mx-auto mt-8 max-w-3xl divide-y divide-neutral-200 rounded-2xl border border-neutral-200 bg-white">
-        <!-- EDIT: Q1 -->
         <details class="group p-6 open:bg-white">
           <summary class="flex cursor-pointer list-none items-center justify-between">
             <span class="font-semibold">How long does a project take?</span>
@@ -319,7 +313,6 @@
           <p class="mt-3 text-neutral-600">Most sites ship in 2–4 weeks depending on scope and feedback speed.</p>
         </details>
 
-        <!-- EDIT: Q2 -->
         <details class="group p-6">
           <summary class="flex cursor-pointer list-none items-center justify-between">
             <span class="font-semibold">Do you provide content & images?</span>
@@ -328,7 +321,6 @@
           <p class="mt-3 text-neutral-600">We can curate stock and guide copywriting, or collaborate with your content.</p>
         </details>
 
-        <!-- EDIT: Q3 -->
         <details class="group p-6">
           <summary class="flex cursor-pointer list-none items-center justify-between">
             <span class="font-semibold">Can you host & maintain the site?</span>
@@ -342,7 +334,6 @@
 
   <!-- =========================================================
        CONTACT
-       - If you want a working form now, replace action with your Formspree ID
        ========================================================= -->
   <section id="contact" class="py-16 sm:py-24">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -376,7 +367,7 @@
   </footer>
 
   <!-- =========================================================
-       JS: tiny helpers (keep; very small and platform-friendly)
+       JS: tiny helpers (snappier reveal)
        ========================================================= -->
   <script>
     // Year in footer
@@ -387,14 +378,14 @@
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-    // Reveal on scroll (no overlap with layouts)
+    // Reveal on scroll (faster + smaller stagger)
     (function(){
       const nodes = document.querySelectorAll('section, h1, h2, p, .rounded-2xl');
-      nodes.forEach((n,i)=>{ n.classList.add('reveal'); n.style.transitionDelay = (i*30)+'ms'; });
+      nodes.forEach((n,i)=>{ n.classList.add('reveal'); n.style.transitionDelay = (i*16)+'ms'; }); // was 30ms
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries)=>{
           entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
-        }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' }); // reveals a touch earlier
         nodes.forEach(n => io.observe(n));
       } else {
         nodes.forEach(n => n.classList.add('show'));
